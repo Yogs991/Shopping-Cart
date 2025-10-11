@@ -1,3 +1,5 @@
+Project Layout
+
 1. 3 Pages: 
     Home Page, Shop Page, Cart Page
 2. Home Page: 
@@ -17,3 +19,32 @@
 6. Test the app with React Test Library (Do not test react-router-dom).
 7. Style the application
 8. Deploy the application
+
+Project Breakdown
+
+-APICall.jsx(maybe?)
+    fetch from FakeStoreAPI product image, name, price
+
+-routes.jsx
+    check react router refactoring the routes section
+
+-Navbar.jsx
+    1 div with 3 buttons(Home Shop Cart) using  Link from react-router
+
+-Home.jsx
+    import Navbar.jsx
+    Background Image, Navbar with 3 buttons for each page, few images for the site itself(welcome to our site, Smart selection, future commerce)
+
+-Shop.jsx
+    import Navbar.jsx
+    grid layout (repeat auto 1fr etc) for 20 items
+    each item with -+ buttons to decrease/increase item quantity to cart
+    input button to change manually quantity number
+    Cart svg icon to add item to cart
+    Cart icon top right live update when items are added
+
+-Cart.jsx
+    connect with APICall.jsx to show the product image, name, quantity price
+    add a remove button to delete the quantity of each item
+    -+ buttons to increase/decrease quantity item
+
