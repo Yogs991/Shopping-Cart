@@ -8,11 +8,9 @@ const Home = ()=>{
                 <NavBar />
             </div>
             <div className="home-main">
-                <div>
-                    <h1>Discover Quality Products for Everyday Life</h1>
-                    <p>Explore our collection of carefully curated items designed to enhance your lifestyle.</p>
-                    <button>Shop Now</button>
-                </div>
+                <h1>Discover Quality Products for Everyday Life</h1>
+                <p>Explore our collection of carefully curated items designed to enhance your lifestyle.</p>
+                <button>Shop Now</button>
             </div>
         </>
     )
