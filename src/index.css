@@ -27,3 +27,13 @@ body{
   justify-content: center;
   height: 100%;
 }
+
+.card{
+  padding-left: 20px;
+  width: 20%;
+}
+
+.card img{
+  width: 20%;
+  height: 20%;
+}
