@@ -64,15 +64,67 @@ body{
 }
 
 .card-list{
+  padding-top: 5px;
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, 400px);
   grid-template-rows: repeat(2, 300px);
+  justify-self: center;
   gap: 10px;
 }
 
 .card{
-  display: block;
+  display: grid;
+  grid-template-rows: 3 100px;
+  justify-items: center;
+  align-items: center;
   box-sizing: border-box;
   box-shadow: 0 4px 8px #00000040;
   color: black;
 }
+
+.card h2{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.card img{
+  width: 100px;
+}
+
+.card input{
+  width: 10%;
+}
+
+.buttons-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.buttons, input{
+  box-shadow: inset 0px 0px 0px 0px #ffffff;
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttons{
+  padding: 5px 15px;
+}
+
+.buttons-list input{
+  height: 27px;
+}
+
+
