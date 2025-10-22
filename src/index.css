@@ -53,6 +53,12 @@ body{
   margin-top: 30px;
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
 .nav-btn{
   background-color: #00C2D1;
   color: black;
@@ -63,16 +69,16 @@ body{
   transition: all 0.2s ease;
 }
 
-.card-list{
+.product-list{
   padding-top: 5px;
   display: grid;
   grid-template-columns: repeat(4, 400px);
-  grid-template-rows: repeat(2, 300px);
+  grid-template-rows: repeat(2, 400px);
   justify-self: center;
   gap: 10px;
 }
 
-.card{
+.product{
   display: grid;
   grid-template-rows: 3 100px;
   justify-items: center;
@@ -82,17 +88,19 @@ body{
   color: black;
 }
 
-.card h2{
+.product h2{
   display: flex;
   justify-items: center;
   align-items: center;
 }
 
-.card img{
+.product img{
   width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
 
-.card input{
+.product input{
   width: 10%;
 }
 

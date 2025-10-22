@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import NavBar from "./Navbar";
 
-const Shop = ()=>{
-    const [cards, setCard] = useState([]);
+function Shop({cartItems, setCartItems}){
+    const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [quantities, setQuantities] = useState({});
@@ -16,7 +16,7 @@ const Shop = ()=>{
                 return response.json();
             })
             .then((response)=>{
-                setCard(response);
+                setProducts(response);
                 const initialQuantities = {};
                 response.forEach((item)=>{
                     initialQuantities[item.id] =1;
@@ -53,6 +53,12 @@ const Shop = ()=>{
         }));
     }
 
+    const addToCart = (product)=>{
+        setCartItems([
+            ...cartItems,
+            {product, quantity: quantities[product.id] || 1},
+        ])
+    }
 
     return(
         <>
@@ -61,20 +67,21 @@ const Shop = ()=>{
                 <NavBar />
             </div>
             <div>
-                <div className="card-list">
-                    {cards.map((card)=>(
-                        <div key={card.id} className="card">
+                <div className="product-list">
+                    {products.map((product)=>(
+                        <div key={product.id} className="product">
                             <div>
-                                <h2>{card.title}</h2>
+                                <h2>{product.title}</h2>
                             </div>
                             <div>
-                                <img src={card.image} alt={card.title} />
+                                <img src={product.image} alt={product.title} />
+                                <p>{product.price} &#8364;</p>
                             </div>
                             <div className="buttons-list">
-                                <button className="buttons" onClick={()=>decreaseQuantity(card.id)}>-</button>
-                                <input type="number" value={quantities[card.id] || 1} onChange={(e)=>handleInputChange(card.id,e.target.value)}/>
-                                <button className="buttons" onClick={()=>increaseQuantity(card.id)}>+</button>
-                                <button className="buttons">Add to cart</button>
+                                <button className="buttons" onClick={()=>decreaseQuantity(product.id)}>-</button>
+                                <input type="number" value={quantities[product.id] || 1} onChange={(e)=>handleInputChange(product.id,e.target.value)}/>
+                                <button className="buttons" onClick={()=>increaseQuantity(product.id)}>+</button>
+                                <button className="buttons" onClick={()=>addToCart(product)}>Add to cart</button>
                             </div>
                         </div>
                     ))}
