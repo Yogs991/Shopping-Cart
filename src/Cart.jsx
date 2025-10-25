@@ -24,33 +24,40 @@ function Cart({cartItems, setCartItems}){
     }
 
     if (cartItems.length === 0)
-    return <p className="empty-cart">Your cart is empty </p>;
+    return <a href="shop">Your cart is empty. Click here to go back</a>;
 
     return(
         <>
-        {/* <div className="home-header">
-            <h2>TOPShop</h2>
-            <NavBar />
-        </div> */}
+            <div className="home-header">
+                <h2>TOPShop</h2>
+                <NavBar cartItems={cartItems}/>
+            </div>
             <div className="cart-container">
-                {cartItems.map((item)=>(
-                    <div>
-                        <div key={item.product.id} className="cartItem">
-                            <img src={item.product.image} alt={item.product} />
-                            <div className="cartItem-details">
-                                <h2>{item.product.title}</h2>
-                                <p>{item.product.description}</p>
-                                <p>{item.product.price} &#8364;</p>
-                                <p>Total: ${multiply(item.quantity, item.product.price).toFixed(2)}</p>
+                <div className="cart-item-container">
+                    <h2>Your Cart</h2>
+                    {cartItems.map((item)=>(
+                        <div className="cartItem-details">
+                            <div key={item.product.id} className="cartItem">
+                                <img src={item.product.image} alt={item.product} />
+                                <div className="cartItem-content">
+                                    <h2>{item.product.title}</h2>
+                                    <p>{item.product.price} &#8364;</p>
+                                    <p>Cost: ${multiply(item.quantity, item.product.price).toFixed(2)}</p>
+                                </div>
+                            </div>
+                            <div className="cartItem-buttons">
+                                <button className="buttons" onClick={()=>decreaseQuantity(item.product.id)}>-</button>
+                                <button className="buttons" onClick={()=>increaseQuantity(item.product.id)}>+</button>
+                                <button className="buttons" onClick={()=>removeFromCart(item.product.id)}>Remove</button>
                             </div>
                         </div>
-                        <div className="cartItem-buttons">
-                            <button onClick={()=>decreaseQuantity(item.product.id)}>-</button>
-                            <button onClick={()=>increaseQuantity(item.product.id)}>+</button>
-                            <button onClick={()=>removeFromCart(item.product.id)}>Remove</button>
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div className="checkout">
+                    <h3>Checkout</h3>
+                    <p>Total: 20000 &#8364;</p>
+                    <button className="buttons">Buy Now</button>
+                </div>
             </div>
             </>
     )

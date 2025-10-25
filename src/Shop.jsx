@@ -64,7 +64,7 @@ function Shop({cartItems, setCartItems}){
         <>
             <div className="home-header">
                 <h2>TOPShop</h2>
-                <NavBar />
+                <NavBar cartItems={cartItems}/>
             </div>
             <div>
                 <div className="product-list">
@@ -73,7 +73,7 @@ function Shop({cartItems, setCartItems}){
                             <div>
                                 <h2>{product.title}</h2>
                             </div>
-                            <div>
+                            <div className="product-details">
                                 <img src={product.image} alt={product.title} />
                                 <p>{product.price} &#8364;</p>
                             </div>
