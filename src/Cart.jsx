@@ -23,6 +23,8 @@ function Cart({cartItems, setCartItems}){
         setCartItems(cartItems.filter((item)=> item.product.id !== id));
     }
 
+    const total = cartItems.reduce((total, item)=> total + item.quantity * item.product.price, 0);
+
     if (cartItems.length === 0)
     return <a href="shop">Your cart is empty. Click here to go back</a>;
 
@@ -55,7 +57,7 @@ function Cart({cartItems, setCartItems}){
                 </div>
                 <div className="checkout">
                     <h3>Checkout</h3>
-                    <p>Total: 20000 &#8364;</p>
+                    <p>Total: ${total.toFixed(2)} &#8364;</p>
                     <button className="buttons">Buy Now</button>
                 </div>
             </div>
