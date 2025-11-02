@@ -57,7 +57,7 @@ function Cart({cartItems, setCartItems}){
                 </div>
                 <div className="checkout">
                     <h3>Checkout</h3>
-                    <p>Total: ${total.toFixed(2)} &#8364;</p>
+                    <p>Total: ${total.toFixed(2)}</p>
                     <button className="buttons">Buy Now</button>
                 </div>
             </div>
