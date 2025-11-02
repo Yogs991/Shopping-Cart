@@ -75,7 +75,7 @@ function Shop({cartItems, setCartItems}){
                             </div>
                             <div className="product-details">
                                 <img src={product.image} alt={product.title} />
-                                <p>{product.price} &#8364;</p>
+                                <p>${product.price}</p>
                             </div>
                             <div className="buttons-list">
                                 <button className="buttons" onClick={()=>decreaseQuantity(product.id)}>-</button>
